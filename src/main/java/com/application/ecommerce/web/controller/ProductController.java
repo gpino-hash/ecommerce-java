@@ -2,6 +2,10 @@ package com.application.ecommerce.web.controller;
 
 import com.application.ecommerce.domain.Product;
 import com.application.ecommerce.domain.service.ProductService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +21,29 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/all")
+    @ApiOperation("Get all products")
+    @ApiResponse(code = 200, message = "OK")
     public ResponseEntity<List<Product>> get() {
         return ResponseEntity.ok(productService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable int id) {
+    @ApiOperation("search a product with ID")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 404, message = "Product not fount"),
+    })
+    public ResponseEntity<Product> getProduct(@ApiParam(value = "the id of de product", required = true, example = "7") @PathVariable int id) {
         return ResponseEntity.of(productService.getProduct(id));
     }
 
     @GetMapping("/category/{id}")
-    public ResponseEntity<List<Product>> getByCategory(@PathVariable("id") int categoryId) {
+    @ApiOperation("search product by category id")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 404, message = "Product not fount"),
+    })
+    public ResponseEntity<List<Product>> getByCategory(@ApiParam(value = "the id of de category", required = true, example = "1") @PathVariable("id") int categoryId) {
         return ResponseEntity.of(productService.getByCategory(categoryId));
     }
 
