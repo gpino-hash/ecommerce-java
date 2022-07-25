@@ -2,10 +2,7 @@ package com.application.ecommerce.web.controller;
 
 import com.application.ecommerce.domain.Product;
 import com.application.ecommerce.domain.service.ProductService;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation("search a product with ID")
+    @ApiOperation(value = "search a product with ID", authorizations = {@Authorization(value = "jwt")})
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 404, message = "Product not fount"),
