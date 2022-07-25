@@ -26,8 +26,8 @@ public class DefaultPurchaseRepository implements PurchaseRepository {
     }
 
     @Override
-    public Optional<List<Purchase>> getByClient(String clientId) {
-        return repository.findByIdClient(clientId)
+    public Optional<List<Purchase>> getByClientId(String clientId) {
+        return repository.findByClientId(clientId)
                 .map(purchaseEntities -> mapper.toPurchases(purchaseEntities));
     }
 

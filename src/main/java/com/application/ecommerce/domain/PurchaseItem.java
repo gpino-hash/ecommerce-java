@@ -6,6 +6,8 @@ public class PurchaseItem {
 
     private int productId;
 
+    private int purchaseId;
+
     private int quantity;
 
     private BigDecimal total;
@@ -42,5 +44,13 @@ public class PurchaseItem {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public int getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(int purchaseId) {
+        this.purchaseId = purchaseId;
     }
 }

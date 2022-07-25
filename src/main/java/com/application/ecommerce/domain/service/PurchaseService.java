@@ -19,7 +19,7 @@ public class PurchaseService {
     }
 
     public Optional<List<Purchase>> getByClient(String clientId) {
-        return repository.getByClient(clientId);
+        return repository.getByClientId(clientId);
     }
 
     public Purchase create(Purchase purchase) {

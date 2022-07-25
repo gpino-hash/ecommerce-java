@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-07-24T23:12:45-0300",
+    date = "2022-07-25T13:19:06-0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.16 (Oracle Corporation)"
 )
 @Component
@@ -27,19 +27,19 @@ public class ProductMapperImpl implements ProductMapper {
 
         Product product = new Product();
 
+        if ( productEntity.getCategoryId() != null ) {
+            product.setCategoryId( productEntity.getCategoryId() );
+        }
+        if ( productEntity.getStatus() != null ) {
+            product.setActive( productEntity.getStatus() );
+        }
         if ( productEntity.getId() != null ) {
             product.setId( productEntity.getId() );
         }
         product.setName( productEntity.getName() );
-        if ( productEntity.getCategoryId() != null ) {
-            product.setCategoryId( productEntity.getCategoryId() );
-        }
         product.setPrice( productEntity.getPrice() );
         if ( productEntity.getStock() != null ) {
             product.setStock( productEntity.getStock() );
-        }
-        if ( productEntity.getStatus() != null ) {
-            product.setActive( productEntity.getStatus() );
         }
         product.setCategory( categoryMapper.toDomainCategory( productEntity.getCategory() ) );
 
@@ -68,12 +68,12 @@ public class ProductMapperImpl implements ProductMapper {
 
         ProductEntity productEntity = new ProductEntity();
 
+        productEntity.setCategoryId( product.getCategoryId() );
+        productEntity.setStatus( product.isActive() );
         productEntity.setId( product.getId() );
         productEntity.setName( product.getName() );
-        productEntity.setCategoryId( product.getCategoryId() );
         productEntity.setPrice( product.getPrice() );
         productEntity.setStock( product.getStock() );
-        productEntity.setStatus( product.isActive() );
         productEntity.setCategory( categoryMapper.toCategory( product.getCategory() ) );
 
         return productEntity;

@@ -9,7 +9,7 @@ public interface PurchaseRepository {
 
     List<Purchase> getAll();
 
-    Optional<List<Purchase>> getByClient(String clientId);
+    Optional<List<Purchase>> getByClientId(String clientId);
 
     Purchase create(Purchase purchase);
 }

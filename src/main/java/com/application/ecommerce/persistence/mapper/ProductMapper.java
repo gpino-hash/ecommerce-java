@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
 public interface ProductMapper {
 
-    @Mapping(source = "categoryId", target = "category_id")
+    @Mapping(source = "categoryId", target = "categoryId")
     @Mapping(source = "status", target = "active")
     Product toDomainProduct(ProductEntity productEntity);
     List<Product> toDomainProducts(List<ProductEntity> productEntities);

@@ -13,7 +13,7 @@ public class PurchaseEntity {
     private Integer id;
 
     @Column(name = "client_id")
-    private Integer clientId;
+    private String clientId;
 
     @Column(name = "date_purchase")
     private LocalDateTime datePurchase;
@@ -40,11 +40,11 @@ public class PurchaseEntity {
         this.id = id;
     }
 
-    public Integer getClientId() {
+    public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(Integer clientId) {
+    public void setClientId(String clientId) {
         this.clientId = clientId;
     }
 
