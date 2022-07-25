@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-07-25T13:19:06-0300",
+    date = "2022-07-25T13:36:35-0300",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 11.0.16 (Oracle Corporation)"
 )
 @Component
@@ -29,7 +29,7 @@ public class PurchaseMapperImpl implements PurchaseMapper {
 
         Purchase purchase1 = new Purchase();
 
-        purchase1.setPurchaseItems( shoppingProductEntityListToPurchaseItemList( purchase.getProducts() ) );
+        purchase1.setItems( shoppingProductEntityListToPurchaseItemList( purchase.getProducts() ) );
         purchase1.setDate( purchase.getDatePurchase() );
         if ( purchase.getId() != null ) {
             purchase1.setId( purchase.getId() );
@@ -64,7 +64,7 @@ public class PurchaseMapperImpl implements PurchaseMapper {
 
         PurchaseEntity purchaseEntity = new PurchaseEntity();
 
-        purchaseEntity.setProducts( purchaseItemListToShoppingProductEntityList( purchase.getPurchaseItems() ) );
+        purchaseEntity.setProducts( purchaseItemListToShoppingProductEntityList( purchase.getItems() ) );
         purchaseEntity.setDatePurchase( purchase.getDate() );
         purchaseEntity.setId( purchase.getId() );
         purchaseEntity.setClientId( purchase.getClientId() );

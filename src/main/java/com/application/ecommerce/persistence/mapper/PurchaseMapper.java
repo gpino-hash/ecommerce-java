@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
 public interface PurchaseMapper {
 
-    @Mapping(source = "products", target = "purchaseItems")
+    @Mapping(source = "products", target = "items")
     @Mapping(source = "datePurchase", target = "date")
     Purchase toPurchase(PurchaseEntity purchase);
     List<Purchase> toPurchases(List<PurchaseEntity> purchaseEntities);

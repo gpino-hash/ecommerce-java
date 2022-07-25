@@ -17,7 +17,7 @@ public class Purchase {
 
     private String status;
 
-    private List<PurchaseItem> purchaseItems;
+    private List<PurchaseItem> items;
 
     public int getId() {
         return id;
@@ -67,11 +67,11 @@ public class Purchase {
         this.status = status;
     }
 
-    public List<PurchaseItem> getPurchaseItems() {
-        return purchaseItems;
+    public List<PurchaseItem> getItems() {
+        return items;
     }
 
-    public void setPurchaseItems(List<PurchaseItem> purchaseItems) {
-        this.purchaseItems = purchaseItems;
+    public void setItems(List<PurchaseItem> items) {
+        this.items = items;
     }
 }
